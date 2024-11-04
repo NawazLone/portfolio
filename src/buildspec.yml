@@ -1,0 +1,14 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14 # Or your app’s Node.js version
+    commands:
+      - npm install -g @angular/cli
+      - npm install
+  build:
+    commands:
+      - ng build --prod # This builds your Angular app
+artifacts:
+  files:
+    - 'dist/**/*' # Path to the compiled Angular files
