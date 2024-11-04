@@ -1,0 +1,57 @@
+.svg-template {
+    position: absolute;
+  }
+  
+  .honeycomb {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 1200px;
+    height: 1200px;
+    border: 1px solid #DDD;
+  }
+  
+  .honeycomb li {
+   margin: 0;
+   padding: 0;
+   position: absolute;
+  }
+  
+  .honeycomb li:nth-child(1) {
+    top: 0;
+    left: 0;
+  }
+  
+  .honeycomb li:nth-child(2) {
+    top: 0;
+    left: 290px;
+  }
+  
+  .honeycomb li:nth-child(3) {
+    top: 0;
+    left: 580px;
+  }
+  
+  .honeycomb li:nth-child(4) {
+    top: 240px;
+    left: 145px;
+  }
+  
+  .honeycomb li:nth-child(5) {
+    top: 240px;
+    left: 435px;
+  }
+  
+  .honeycomb li:nth-child(6) {
+    top: 240px;
+    left: 725px;
+  }
+  
+  .honeycomb li a {
+    cursor: pointer;
+  }
+  
+  .honeycomb li a:hover image{
+   opacity: 0.5;
+  }

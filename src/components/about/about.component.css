@@ -1,0 +1,83 @@
+/* Set the parent to use flexbox to equally distribute space between its children */
+.parent {
+    display: flex;
+    width: 100%; /* full width of the viewport */
+    height: 100vh;
+   
+}
+:host {
+    font-family: 'Google Sans', sans-serif !important;
+}
+
+/* Ensure both child divs take up half of the parent's space */
+.introduction, .profile-image {
+    flex: 1; /* equally divide the space */
+    flex-direction: column;
+    display: flex;
+    align-items: center; /* center items vertically */
+    justify-content: center; /* center items horizontally */
+    padding: 20px; /* add some padding around the content */
+}
+
+/* Styles for the Name class */
+.Name {
+    font-size: 3em; /* larger font size */
+    font-weight: bold; /* make font bold */
+    color: black; /* full dark text color */
+    line-height: normal;
+}
+
+/* Styles for the Description class */
+.Description {
+    font-size: 1em; /* normal font size */
+    color: #808080; /* slightly lighter than black */
+    max-width: 33em; /* limit the width of the description */
+    text-align: justify; /* improve readability */
+}
+
+/* Styles for the profile-image */
+.profile-image img {
+    max-width: 100%; /* ensure the image is responsive and doesn't overflow */
+    max-height: 100%; /* limit the height to the container */
+    border-radius: 50%; /* optional: makes the image round */
+}
+.salam {
+    color: #808080;
+  
+    white-space: nowrap;
+    overflow: hidden;
+    animation: blinkCursor 0.75s steps(44) infinite normal;
+}
+
+@keyframes blinkCursor {
+    from { border-right-color: #808080; }
+    to { border-right-color: transparent; }
+}
+.download-resume-button, .contact-button {
+    color: white; /* Ensures text is readable */
+    border: none; /* Removes any border */
+    border-radius: 20px; /* Makes the border radius large for a curved effect */
+    padding: 10px 20px; /* Provides some padding inside the button */
+    font-size: 16px; /* Adjust font size as needed */
+    cursor: pointer; /* Changes cursor to pointer to indicate button */
+    transition: all 0.3s ease; /* Smooth transition for any hover effects */
+    font-family: 'Google Sans', sans-serif !important;
+  }
+  
+  .download-resume-button {
+    background-image: linear-gradient(45deg, #2193b0 0%, #6dd5ed 100%);
+  }
+  
+  .contact-button {
+    background-image: linear-gradient(45deg, #ff8a00 0%, #e52e71 100%);
+  }
+  
+  /* Adding a hover effect for better user interaction */
+  .download-resume-button:hover, .contact-button:hover {
+    opacity: 0.9; /* Slightly reduce opacity on hover */
+  }
+  .buttons{
+    position: relative;
+    left: -16%;
+    top: 4%;
+  }

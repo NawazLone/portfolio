@@ -1,0 +1,107 @@
+.timeline-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  :host h1,h3,h4,p,body,h1,h2{
+    font-family: 'Google Sans', sans-serif !important;
+    width: 100%;
+   
+}
+  .timeline {
+    list-style: none;
+    padding: 0;
+    position: relative;
+    
+   
+  }
+  
+  .timeline-event {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 40px; /* Space for the dot and line */
+    opacity: 0; /* Initially hide elements */
+    transform: translateY(50px); /* Start lower and move up */
+    animation: fadeInMoveUp 1s ease forwards; /* Animation for each event */
+  }
+  
+  .timeline-dot {
+    position: absolute;
+    left: 12%;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #2193b0 0%, #6dd5ed 100%);
+    border-radius: 50%;
+    z-index: 100;
+  }
+  
+  .timeline-content {
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+   /* background: #fff;*/
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    background: white !important;
+  }
+
+  .timeline-content:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+
+  }
+  .timeline-image {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-right: 10px;
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 12.7%; /* Center the line with respect to the dots */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(45deg, #2193b0 0%, #6dd5ed 100%);
+    height: 0; /* Start with no height */
+    animation: drawLine 4s ease-in-out forwards; /* Slower line drawing */
+  }
+  
+  @keyframes drawLine {
+    from { height: 0; }
+    to { height: 80%; }
+  }
+  
+  @keyframes fadeInMoveUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Adding staggered animation effects for each item */
+  .timeline-event:nth-child(1) {
+    animation-delay: 1s; /* Delays are cumulative */
+  }
+  
+  .timeline-event:nth-child(2) {
+    animation-delay: 2s;
+  }
+  
+  .timeline-event:nth-child(3) {
+    animation-delay: 3s;
+  }
+  
+  .timeline-event:nth-child(4) {
+    animation-delay: 4s;
+  }
+  
