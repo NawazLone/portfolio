@@ -13,9 +13,7 @@ node -v
 cd /var/www/html/angular-app || { echo "Failed to navigate to application folder"; exit 1; }
 
 echo "Installing dependencies..."
-npm install 
-#|| { echo "npm install failed"; exit 1; }
+npm install || { echo "npm install failed"; exit 1; }
 echo "Building the Angular app for production..."
-ng build --configuration production 
-#|| { echo "ng build failed"; exit 1; }
+ng build --configuration production || { echo "ng build failed"; exit 1; }
 echo "Build completed successfully."
