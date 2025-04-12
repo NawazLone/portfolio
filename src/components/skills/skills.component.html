@@ -1,52 +1,24 @@
-<svg class="svg-template" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" version="1.1">
-    <defs>
-       <clipPath id="hexagonal-mask">
-          <polygon points="50 0, 95 25, 95 75, 50 100, 5 75, 5 25" />
-       </clipPath>
-     </defs>
- </svg>
- 
- <ul class="honeycomb">
-   <li>
-    <svg width="300" height="300" viewBox="0 0 100 100">
-        <a href="https://drive.google.com/uc?id=1ywfU6zMJqTw4McRUkpSqjj_BskDbl7qx">
-           <image  src="https://drive.google.com/uc?id=1ywfU6zMJqTw4McRUkpSqjj_BskDbl7qx" clip-path="url(#hexagonal-mask)" height="100%" width="100%" xlink:href="assets/logo_clark.png"/>
-        </a>
-      </svg>
-   </li>
-   <li>
-      <svg width="300" height="300" viewBox="0 0 100 100" >
-       <a href="#something">
-         <image clip-path="url(#hexagonal-mask)" height="100%" width="100%" xlink:href="https://i.imgur.com/grp9BU1.png"/>
-        </a>
-     </svg>
-   </li>
-   <li>
-      <svg width="300" height="300" viewBox="0 0 100 100" >
-       <a href="#something">
-         <image clip-path="url(#hexagonal-mask)" height="100%" width="100%" xlink:href="https://i.imgur.com/grp9BU1.png"/>
-        </a>
-     </svg>
-   </li>
-   <li>
-      <svg width="300" height="300" viewBox="0 0 100 100" >
-       <a href="#something">
-         <image clip-path="url(#hexagonal-mask)" height="100%" width="100%" xlink:href="https://i.imgur.com/grp9BU1.png"/>
-        </a>
-     </svg>
-   </li>
-   <li>
-      <svg width="300" height="300" viewBox="0 0 100 100" >
-       <a href="#something">
-         <image clip-path="url(#hexagonal-mask)" height="100%" width="100%" xlink:href="https://i.imgur.com/grp9BU1.png"/>
-        </a>
-     </svg>
-   </li>
-   <li>
-      <svg width="300" height="300" viewBox="0 0 100 100" >
-       <a href="#something">
-         <image clip-path="url(#hexagonal-mask)" height="100%" width="100%" xlink:href="https://i.imgur.com/grp9BU1.png"/>
-        </a>
-     </svg>
-   </li>
- </ul>
+
+   <div class="title">
+      <span class="material-icons icon-school">edit</span>
+      <h1>Technical Skills</h1>
+   </div>
+   <div style="margin-top: 1rem;"></div>
+   <!-- <div class="hex-grid">
+      <div *ngFor="let skill of skills; let schooli = index" class="hex">
+            <img [src]="skill.image" [alt]="skill.name">
+         
+          <span>{{ skill.name }}</span>
+      </div>
+      
+     
+   </div> -->
+    <div class="container">
+   <div class="hex-grid">
+      <div *ngFor="let skill of skills; let i = index" class="hex">
+          <img [src]="skill.image" [alt]="skill.name">
+          <span>{{ skill.name }}</span>
+      </div>
+   </div>
+</div>
+

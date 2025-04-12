@@ -1,64 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Nawaz Muhammad</title>
+  <style>
+    /* Add any necessary styling here */
+  </style>
+</head>
+
 <body>
-  <div class="container">
+  <div class="container" appObserveVisibility (visible)="onVisible()">
     <header>
       <nav class="horizontal-nav">
-        <div class="logo" style="font-family: OCR A Std, monospace;"><span style="margin-right: 4px;">Nawaz</span><span
-            style="color:#808080">Muhammad</span></div>
+        <div class="logo" style="font-family: OCR A Std, monospace;">
+          <span style="margin-right: 4px;">Nawaz</span>
+          <span style="color:#808080">Muhammad</span>
+        </div>
         <ul>
-          <li><a routerLink="/about">Home</a></li>
-          <li><a routerLink="/about">About</a></li>
-          <li><a routerLink="/education">Education</a></li>
-          <li><a routerLink="/experience">Skills</a></li>
-          <li><a routerLink="/experience">Experience</a></li>
-          <li><a routerLink="/contact">Contact</a></li>
+          <li><a href="#" (click)="scrollTo('home')">Home</a></li>
+          <li><a href="#" (click)="scrollTo('about')">About</a></li>
+          <li><a href="#" (click)="scrollTo('education')">Education</a></li>
+          <li><a href="#" (click)="scrollTo('skills')">Skills</a></li>
+          <li><a href="#" (click)="scrollTo('experience')">Experience</a></li>
+          <li><a href="#" (click)="scrollTo('contact')">Contact</a></li>
         </ul>
-        <button class="gradient-text-button">
+    
+        <button (click)="scrollTo('about')" class="gradient-text-button">
           Download Resume
         </button>
-
       </nav>
     </header>
 
-    <main>
-      <div class="hero-image">
-        <!-- Insert your smartphone image here -->
-      </div>
+    <section #home id="home" style="background: #FFE6E6;">
+      <app-home></app-home>
+    </section>
 
-      <!-- </section> -->
-      <router-outlet></router-outlet>
-    </main>
-    <div style="background: #FFE6E6;;">
+    <section  #about id='about' class="__aboutttt">
       <app-about></app-about>
-    </div>
-    <div class="__aboutttt" >
+    </section>
 
-      <h1 class="gradient-title">About</h1>
-      <br /><br />
-      <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-        a
-        type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-        of
-        Lorem Ipsum. </p>
-    </div>
-    <div>
-    <app-education></app-education>
-    </div>
-   
-    <div #animateOnScroll class="expr">
-      <app-experience ></app-experience>
-    </div>
+    <section  #education id='education'>
+      <app-education></app-education>
+    </section>
 
-    <div>
-      <app-skills></app-skills>
-    </div>
+    <section #experience id="experience" #animateOnScroll class="expr">
+      <app-experience></app-experience>
+    </section>
+
+    <section  id="skills">
+      <app-skills style="background: #FFE6E6;"></app-skills>
+      <app-certifications></app-certifications>
+    </section>
+
   </div>
-
 </body>
 
 </html>

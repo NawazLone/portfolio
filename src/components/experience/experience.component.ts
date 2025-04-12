@@ -12,10 +12,14 @@ import { Component } from '@angular/core';
 export class ExperienceComponent {
   experiences = [
     {
-      year: "2018 - 2019",
-      company: "Company A",
-      role: "Junior Developer",
-      description: "Worked on various web development projects, focusing on front-end technologies.",
+      year: "January 2025-Present ",
+      company: "Maverick Quantum Private Limited",
+      role: "Software Development Engineer Intern",
+      location:'Albany, USA	',
+      description: `• &nbsp Develop full-stack applications for child support services, child welfare services, and adult welfare services, supporting a $12M revenue project for Oklahoma Human Services.<br>
+• &nbspBuild and optimize front-end interfaces and backend APIs to improve system performance, user experience, and data processing.<br>
+• &nbspCollaborate with cross-functional teams using agile methodologies to deliver scalable and secure solutions.
+`,
       imageUrl: "assets/logo_clark.png"
     },
     {
@@ -51,6 +55,6 @@ export class ExperienceComponent {
     // Disable animations
     this.animate = false;
   }
-  
+
 
 }

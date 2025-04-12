@@ -15,22 +15,17 @@ interface Skill {
   styleUrl: './skills.component.css'
 })
 export class SkillsComponent {
-  skills: Skill[] = [
-    { name: 'Angular', icon: 'logo_clark.png', color: '#dd0031', percentage: 100 },
-    { name: 'Node.js', icon: 'jntu_logo.png', color: '#68a063', percentage: 70 },
-    { name: 'Nest.js', icon: 'a.gs_logo.JPG', color: '#e0234e', percentage: 60 },
-    // Add more skills as needed
+  skills = [
+    { name: 'Angular', image: './assets/angular_logo.png' },
+    { name: 'JavaScript', image: 'assets/js_logo.png' },
+    { name: 'Node Js', image: 'assets/nodejs_logo.jpeg' },
+    { name: 'Java', image: 'assets/java_logo.png' },
+    { name: 'GCP', image: 'assets/GCP_logo.png' },
+    { name: 'AWS', image: 'assets/aws_logo.jpeg' },
+    { name: 'CI/CD', image: './assets/cicd_logo.jpeg' },
+    { name: 'NestJS', image: 'assets/nestjs_logo.png' },
+    { name: 'SQL', image: 'assets/sql_logo.jpeg' },
+    
+    
   ];
-  showTooltip: boolean = false;
-  hoveredSkill: Skill | null = null;
-
-  onMouseEnter(skill: Skill): void {
-    this.showTooltip = true;
-    this.hoveredSkill = skill;
-  }
-
-  onMouseLeave(): void {
-    this.showTooltip = false;
-    this.hoveredSkill = null;
-  }
 }

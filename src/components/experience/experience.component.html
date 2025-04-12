@@ -4,11 +4,15 @@
         <div class="timeline-dot"></div>
         <div class="timeline-content">
           <img src="{{ exp.imageUrl }}" alt="{{ exp.company }} Logo" class="timeline-image">
-          <h4>{{ exp.company }} ({{ exp.year }})</h4>
-          <p>{{ exp.role }}</p>
-          <p>{{ exp.description }}</p>
+          <div>
+               <h3>
+              {{ exp.company }} ({{ exp.location }})
+            <i>{{exp.year}}</i></h3>
+            
+          </div> 
+          <span>{{ exp.role }}</span>
+          <p [innerHTML]="exp.description"></p>
         </div>
       </li>
     </ul>
   </div>
-  

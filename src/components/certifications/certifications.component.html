@@ -1,0 +1,7 @@
+<h1>Is this component working</h1>
+<div class="container" id="certificateList">
+    <div *ngFor="let cert of certificates" class="certificate">
+      <img [src]="cert.image" [alt]="cert.name" />
+      <div class="name">{{ cert.name }}</div>
+    </div>
+  </div>
