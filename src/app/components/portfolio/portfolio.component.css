@@ -98,8 +98,8 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
+    flex-wrap: nowrap;
+    gap: 10px;
     position: relative;
   }
   
@@ -125,19 +125,20 @@ body, html {
   }
   
   .horizontal-nav ul li {
-    margin: 0 6px;
+    margin: 0 4px;
   }
   
   .horizontal-nav ul li a {
     text-decoration: none;
     color: #333;
-    padding: 10px 16px;
+    padding: 8px 14px;
     border-radius: 25px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 500;
     position: relative;
     display: block;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
   }
   
   .horizontal-nav ul li a:hover {
@@ -153,8 +154,9 @@ body, html {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 8px;
-  margin-right: 20px;
+  gap: 6px;
+  margin-right: 15px;
+  flex-wrap: nowrap;
 }
 
 /* Hide desktop nav on mobile */
@@ -338,14 +340,14 @@ body, html {
 .desktop-resume-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 10px 20px;
+  gap: 4px;
+  padding: 8px 16px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   text-decoration: none;
   border-radius: 25px;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -353,6 +355,7 @@ body, html {
   position: relative;
   overflow: hidden;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .desktop-resume-btn::before {
