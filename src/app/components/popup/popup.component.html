@@ -1,5 +1,5 @@
 <!-- Dynamic Couplet Popup Modal -->
-<div class="couplet-popup show" *ngIf="selectedCouplet">
+<div class="couplet-popup show" *ngIf="selectedCouplet" [class.show]="selectedCouplet">
   <div class="popup-backdrop" (click)="goToPortfolio()"></div>
   <div class="popup-container" (click)="$event.stopPropagation()">
     <!-- Popup Title -->

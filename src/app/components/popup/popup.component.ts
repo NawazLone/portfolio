@@ -128,7 +128,10 @@ export class PopupComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.selectRandomCouplet();
+    // Small delay to ensure proper rendering
+    setTimeout(() => {
+      this.selectRandomCouplet();
+    }, 100);
   }
 
   selectRandomCouplet() {
