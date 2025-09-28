@@ -1,6 +1,6 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 
 
 @Component({
@@ -10,41 +10,92 @@ import { Component } from '@angular/core';
   styleUrl: './education.component.css',
   imports:[CommonModule]
 })
-export class EducationComponent {
+export class EducationComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild('educationSection', { static: false }) educationSection!: ElementRef;
+  
+  isVisible = false;
+  isHoverEnabled = false;
+  private observer?: IntersectionObserver;
 
-  educationalInfo = [
-    {
-      icon: 'school',
-      name: 'Clark University',
-      description: 'Focused studies on Mathematics, Physics, and Literature.',
-      dates: '2010 - 2014'
-    },
-    {
-      icon: 'local_library',
-      name: 'University of Springfield',
-      description: 'Bachelor of Science in Computer Science. Courses in Software Development, Data Structures, and Algorithms.',
-      dates: '2014 - 2018'
-    }
-  ];
   educationEntries = [
     {
       icon: 'school',
-      institution: 'Springfield High School',
-      description: 'High School Diploma with an emphasis in Sciences and Mathematics.',
-      dateRange: '2006 - 2010'
+      institution: 'Clark University',
+      description: 'Master of Science in Information Technology (GPA: 4.0), Alpha Epsilon Lambda Honor Society Member, Exceptional Academic Award Recipient',
+      dateRange: '2023 - 2025',
+      level: 'masters',
+      badge: '🏆',
+      logo: 'assets/logo_clark.png'
     },
     {
       icon: 'local_library',
-      institution: 'University of Springfield',
-      description: 'Bachelor of Science in Computer Science, specializing in Software Development and Data Structures.',
-      dateRange: '2010 - 2014'
-    },
-    {
-      icon: 'account_balance',
-      institution: 'Springfield State University',
-      description: 'Master of Science in Information Technology, focused on Advanced Computing Technologies.',
-      dateRange: '2015 - 2017'
+      institution: 'JNTU Hyderabad',
+      description: 'Bachelor of Technology in Computer Science and Engineering, specializing in Software Development and Data Structures.',
+      dateRange: '2016 - 2020',
+      level: 'bachelors',
+      badge: '🎓',
+      logo: 'assets/jntu_logo.png'
     }
   ];
 
+
+  ngOnInit() {
+    // Initialize component
+  }
+
+  ngAfterViewInit() {
+    // Add a small delay to ensure ViewChild is available
+    setTimeout(() => {
+      this.setupScrollObserver();
+    }, 100);
+  }
+
+  ngOnDestroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+
+  private setupScrollObserver() {
+    // Check if we're in the browser environment
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+      // Fallback for SSR or older browsers - enable after a delay
+      setTimeout(() => {
+        this.isVisible = true;
+        this.isHoverEnabled = true;
+      }, 500);
+      return;
+    }
+
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.isVisible = true;
+            // Enable hover effects immediately
+            this.isHoverEnabled = true;
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+        rootMargin: '0px 0px -20px 0px'
+      }
+    );
+
+    if (this.educationSection && this.educationSection.nativeElement) {
+      this.observer.observe(this.educationSection.nativeElement);
+    } else {
+      // Fallback if ViewChild is not available - enable after delay
+      setTimeout(() => {
+        this.isVisible = true;
+        this.isHoverEnabled = true;
+      }, 800);
+    }
+  }
+
+  onSectionClick() {
+    this.isVisible = true;
+    this.isHoverEnabled = true;
+  }
 }

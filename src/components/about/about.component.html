@@ -1,24 +1,92 @@
-<div class="about-container">
-    <div class="parent">
-        <div class="introduction">
-           <div class="Name">
-           <span class="salam"> Hola,</span> <br/>It is Nawaz Muhammad</div>
-           <div class="Description"> A software Development Engineer with more than 3.5 years of experience in front-end, back-end and cloud development and deployment.</div>
-           <div class="buttons">
-            <button mat-raised-button class="download-resume-button">
-                Download Resume
-              </button>
-              &nbsp;
-              <button mat-raised-button class="contact-button">
-                Contact
-              </button>
-              
-           </div>
-        </div>
-        <div class="profile-image">
-            <img src="assets/profile_pic.png" alt="Profile Image">
-        </div>
+<div class="hero-container">
+  <!-- Animated Background -->
+  <div class="hero-background">
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <div class="shape shape-5"></div>
     </div>
-    
-   
+    <div class="gradient-overlay"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="hero-content">
+    <div class="hero-text">
+      <!-- Greeting with Animation -->
+      <div class="greeting-section">
+        <span class="greeting-text">Hello, I'm</span>
+        <h1 class="hero-name">
+          <span class="name-part-1">Nawaz</span>
+          <span class="name-part-2">Muhammad</span>
+        </h1>
+        <div class="typing-animation">
+          <span class="typing-text">Software Developement Engineer</span>
+          <span class="cursor">|</span>
+        </div>
+      </div>
+
+      <!-- Description with Highlights -->
+      <div class="hero-description">
+        <p class="description-text">
+          Building solutions that impact <span class="highlight-text">millions</span> with 
+          <span class="highlight-text">5+ years</span> of international experience in 
+          <span class="highlight-tech">System Design & Architecture</span>, 
+          <span class="highlight-tech">Kubernetes</span>, and 
+          <span class="highlight-tech">Cloud Technologies</span>. 
+          <span class="highlight-number">AWS & Google Cloud Certified</span> professional.
+        </p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="hero-buttons">
+        <a href="assets/resume.pdf" target="_blank" class="primary-button" (click)="trackResumeDownload()">
+          <i class="material-icons">download</i>
+          <span>Download Resume</span>
+          <div class="button-glow"></div>
+        </a>
+        <button class="secondary-button">
+          <i class="material-icons">email</i>
+          <span>Get In Touch</span>
+        </button>
+      </div>
+
+      <!-- Social Links -->
+      <div class="hero-social">
+        <a href="https://github.com/NawazLone" target="_blank" class="social-icon" title="GitHub">
+          <i class="material-icons">code</i>
+        </a>
+        <a href="https://www.linkedin.com/in/nawaz-muhamad/" target="_blank" class="social-icon" title="LinkedIn">
+          <i class="material-icons">work</i>
+        </a>
+        <a href="mailto:shaalkak0@gmail.com" class="social-icon" title="Email">
+          <i class="material-icons">email</i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Profile Image Section -->
+    <div class="hero-image">
+      <div class="image-wrapper">
+        <div class="image-background"></div>
+        <img src="assets/profile_pic.jpeg" alt="Nawaz Muhammad" class="profile-img">
+        <div class="image-border"></div>
+        <div class="floating-elements">
+          <div class="floating-icon icon-1">💻</div>
+          <div class="floating-icon icon-2">🚀</div>
+          <div class="floating-icon icon-3">⚡</div>
+          <div class="floating-icon icon-4">🌟</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-arrow">
+      <i class="material-icons">keyboard_arrow_down</i>
+    </div>
+    <span class="scroll-text">Scroll to explore</span>
+  </div>
 </div>

@@ -1,0 +1,40 @@
+<!-- Dynamic Couplet Popup Modal -->
+<div class="couplet-popup show" *ngIf="selectedCouplet">
+  <div class="popup-backdrop" (click)="goToPortfolio()"></div>
+  <div class="popup-container" (click)="$event.stopPropagation()">
+    <!-- Popup Title -->
+    <div class="popup-title">
+      <h1>{{ popupTitle }}</h1>
+    </div>
+    
+    <div class="couplet-content">
+      <!-- English Translation (Left) -->
+      <div class="couplet-english">
+        <div class="couplet-text">
+          <p class="couplet-line-1">"{{ selectedCouplet!.english.line1 }}"</p>
+          <p class="couplet-line-2">"{{ selectedCouplet!.english.line2 }}"</p>
+        </div>
+        <div class="couplet-attribution">
+          <span class="attribution-text">— {{ selectedCouplet!.english.attribution }}</span>
+        </div>
+      </div>
+      
+      <!-- Urdu Original (Right) -->
+      <div class="couplet-urdu">
+        <div class="couplet-text">
+          <p class="couplet-line-1">{{ selectedCouplet!.urdu.line1 }}</p>
+          <p class="couplet-line-2">{{ selectedCouplet!.urdu.line2 }}</p>
+        </div>
+        <div class="couplet-attribution">
+          <span class="attribution-text">— {{ selectedCouplet!.urdu.attribution }}</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="popup-close" (click)="goToPortfolio()">
+      <span class="close-text">Continue to Portfolio</span>
+      <i class="material-icons">arrow_forward</i>
+    </div>
+   
+  </div>
+</div>

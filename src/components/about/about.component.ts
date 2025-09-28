@@ -12,13 +12,16 @@ export class AboutComponent implements OnInit {
   displayedText: string = "";
   private currentIndex: number = 0;
 
-
   constructor() { }
 
   ngOnInit(): void {
   
   }
 
-
-
+  // Track resume download in Google Analytics
+  trackResumeDownload() {
+    if (typeof window !== 'undefined' && (window as any).trackResumeDownload) {
+      (window as any).trackResumeDownload();
+    }
+  }
 }

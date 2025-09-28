@@ -1,0 +1,71 @@
+<div class="awards-container" #awardsSection (click)="onSectionClick()" [class.visible]="isVisible" [class.hover-enabled]="isHoverEnabled">
+  <div class="awards-header">
+    <div class="header-content">
+      <span class="material-icons awards-icon">emoji_events</span>
+      <h1>Awards & Recognition</h1>
+      <p>Honors and achievements throughout my career and education</p>
+    </div>
+    <div class="header-decoration">
+      <div class="decoration-line"></div>
+      <div class="decoration-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="awards-grid">
+    <div class="award-card" *ngFor="let award of awards; let i = index" 
+         [style.animation-delay]="(i * 0.15) + 's'"
+         [style.--gradient]="award.gradient">
+      <div class="award-card-inner">
+        <div class="award-badge">
+          <span class="material-icons">{{ award.icon }}</span>
+          <div class="badge-glow"></div>
+        </div>
+        
+        <div class="award-content">
+          <div class="award-header">
+            <h3>{{ award.title }}</h3>
+            <span class="award-year">{{ award.year }}</span>
+          </div>
+          <p class="award-organization">{{ award.organization }}</p>
+          <p class="award-description">{{ award.description }}</p>
+          <div class="award-category">
+            <span class="category-tag" [style.background-color]="award.color + '20'" [style.color]="award.color">
+              {{ award.category }}
+            </span>
+          </div>
+          <div class="award-significance">
+            <span class="significance-label">Significance:</span>
+            <span class="significance-text">{{ award.significance }}</span>
+          </div>
+        </div>
+        
+        <div class="award-hover-effect"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="awards-footer">
+    <div class="stats-row">
+      <div class="stat-item">
+        <span class="stat-number">4</span>
+        <span class="stat-label">Awards</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">2</span>
+        <span class="stat-label">Academic</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">1</span>
+        <span class="stat-label">Professional</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">1</span>
+        <span class="stat-label">National</span>
+      </div>
+    </div>
+  </div>
+</div>

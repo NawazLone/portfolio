@@ -1,94 +1,29 @@
-<div class="container">
+<div class="container" #educationSection (click)="onSectionClick()" [class.visible]="isVisible" [class.hover-enabled]="isHoverEnabled">
     <div class="title">
         <span class="material-icons icon-school">school</span>
         <h1>Education</h1>
     </div>
 
-    <div class="education-container">
-
+    <div class="education-container" *ngFor="let education of educationEntries" [class]="'education-' + education.level">
         <div class="info">
-            <img src="assets/logo_clark.png" alt="University Logo" class="custom-icon">
+            <div class="icon-wrapper">
+                <div class="logo-container">
+                    <img [src]="education.logo" [alt]="education.institution + ' logo'" class="university-logo">
+                    <span class="material-icons custom-icon">{{ education.icon }}</span>
+                    <div class="university-name">{{ education.institution }}</div>
+                </div>
+                <span class="education-badge">{{ education.badge }}</span>
+            </div>
             &nbsp;
             <div class="detail">
                 <div>
-                    <h3>Clark University</h3>
-
-                    <p class="description">Master of Science in Information Technology</p>
+                    <h3>{{ education.institution }}</h3>
+                    <p class="description">{{ education.description }}</p>
                 </div>
-
-                <p class="date">2024-2025</p>
-
-            </div>
-
-        </div>
-    </div>
-    <div class="education-container">
-
-        <div class="info">
-            <img src="assets/jntu_logo.png" alt="University Logo" class="custom-icon">
-            &nbsp;
-            <div class="detail">
-                <div>
-                    <h3>Jawharlal Nehru Technological University Hyderabd</h3>
-                    <p class="description">Bachelor of Technology in Computer Sciene & Engineering</p>
-                </div>
-                <p class="date">2016-2020</p>
+                <p class="date">{{ education.dateRange }}</p>
             </div>
         </div>
     </div>
-    <div class="education-container">
-
-        <div class="info">
-            <span   class="material-icons __h-s ">school</span>
-            &nbsp;
-            <div class="detail">
-                <div>
-                    <h3>Boys Higher Secondry School(BHSS) Kupwara Kashmir</h3>
-                    <p class="description">Higher Secondry; Physics,Chemistry,Math,Biology(PCMB)</p>
-                </div>
-                <p class="date">2013-2015</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="education-container">
-
-        <div class="info">
-            <img src="assets/a.gs_logo.JPG" alt="University Logo" class="custom-icon">
-            &nbsp;
-            <div class="detail">
-                <div>
-                    <h3>A.G's Public School Shuloora Kupwara Kashmir</h3>
-                    <p class="description">High School; English,Math,Science,Urdu,History,Kashmiri,Islamic Studies</p>
-                </div>
-                <p class="date">2011-2013</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="education-container">
-
-        <div class="info">
-            <img src="assets/sunrise_logo.png" alt="University Logo" class="custom-icon">
-            &nbsp;
-            <div class="detail">
-                <div>
-                    <h3>Sunrise Public School</h3>
-                    <p class="description">Elementry,Intermediate,Middle School;English,Urdu,Science,Kashmiri,Hindi,Islamic Studies</p>
-                </div>
-                <p class="date">2003-2013</p>
-            </div>
-        </div>
-    </div>
-    <div class="title">
-        <span class="material-icons icon-school"> workspace_premium</span>
-        <h1>Certifications</h1>
-    </div>
-    <!-- seal-animation.component.html -->
-<div class="certification-container">
-    <div class="seal">Certified</div>
-    <div class="text">Certification</div>
-</div>
 
 
 </div>

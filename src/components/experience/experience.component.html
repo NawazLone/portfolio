@@ -1,14 +1,24 @@
-<div class="timeline-container" [class.animate]="animate">
+<div class="experience-container" #experienceSection (click)="onSectionClick()" [class.visible]="isVisible" [class.hover-enabled]="isHoverEnabled">
+  <div class="experience-header">
+    <span class="material-icons">work</span>
+    <h1>Professional Experience</h1>
+    <p>My journey in software development</p>
+  </div>
+  
+  <div class="timeline-container" [class.animate]="animate">
     <ul class="timeline">
       <li *ngFor="let exp of experiences" class="timeline-event">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <img src="{{ exp.imageUrl }}" alt="{{ exp.company }} Logo" class="timeline-image">
-          <h4>{{ exp.company }} ({{ exp.year }})</h4>
-          <p>{{ exp.role }}</p>
-          <p>{{ exp.description }}</p>
+          <div class="company-header">
+            <span class="material-icons company-icon">{{ exp.icon }}</span>
+            <h4>{{ exp.company }} ({{ exp.year }})</h4>
+          </div>
+          <p class="role">{{ exp.role }}</p>
+          <p class="description">{{ exp.description }}</p>
         </div>
       </li>
     </ul>
   </div>
+</div>
   

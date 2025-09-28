@@ -1,0 +1,71 @@
+<div class="certifications-container" #certificationsSection (click)="onSectionClick()" [class.visible]="isVisible" [class.hover-enabled]="isHoverEnabled">
+  <div class="certifications-header">
+    <div class="header-content">
+      <span class="material-icons cert-icon">verified</span>
+      <h1>Professional Certifications</h1>
+      <p>Validated expertise in cutting-edge technologies</p>
+    </div>
+    <div class="header-decoration">
+      <div class="decoration-line"></div>
+      <div class="decoration-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="certifications-grid">
+    <div class="cert-card" *ngFor="let cert of certifications; let i = index" 
+         [style.animation-delay]="(i * 0.1) + 's'"
+         [style.--gradient]="cert.gradient">
+      <div class="cert-card-inner">
+        <div class="cert-badge">
+          <span class="material-icons">{{ cert.icon }}</span>
+          <div class="badge-glow"></div>
+        </div>
+        
+        <div class="cert-content">
+          <h3>{{ cert.name }}</h3>
+          <p class="cert-provider">{{ cert.provider }}</p>
+          <div class="cert-footer">
+            <span class="cert-date">{{ cert.date }}</span>
+            <div class="cert-status">
+              <span class="status-dot" [class.expired]="cert.status === 'Expired Feb 2024'"></span>
+              <span class="status-text">{{ cert.status || 'Verified' }}</span>
+            </div>
+          </div>
+          <div class="cert-details" *ngIf="cert.expires || cert.credentialId">
+            <div class="cert-expiry" *ngIf="cert.expires">
+              <span class="detail-label">Expires:</span>
+              <span class="detail-value">{{ cert.expires }}</span>
+            </div>
+            <div class="cert-credential" *ngIf="cert.credentialId">
+              <span class="detail-label">ID:</span>
+              <span class="detail-value">{{ cert.credentialId }}</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cert-hover-effect"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="certifications-footer">
+    <div class="stats-row">
+      <div class="stat-item">
+        <span class="stat-number">6</span>
+        <span class="stat-label">Certifications</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">2</span>
+        <span class="stat-label">Google Cloud</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">1</span>
+        <span class="stat-label">AWS Certified</span>
+      </div>
+    </div>
+  </div>
+</div>

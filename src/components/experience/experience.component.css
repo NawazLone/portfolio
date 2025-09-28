@@ -1,19 +1,72 @@
+.experience-container {
+  padding: 80px 20px;
+  width: 100%;
+  max-width: 100vw;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+  pointer-events: none;
+}
+
+.experience-header {
+  text-align: center;
+  margin-bottom: 60px;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.experience-header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  background: linear-gradient(45deg, #fff, #f0f0f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.experience-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 0;
+}
+
+.experience-header .material-icons {
+  font-size: 3rem;
+  color: #667eea;
+  margin-bottom: 20px;
+  display: block;
+}
+
 .timeline-container {
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
   }
   :host h1,h3,h4,p,body,h1,h2{
     font-family: 'Google Sans', sans-serif !important;
     width: 100%;
-   
+    margin: 0;
+    padding: 0;
 }
   .timeline {
     list-style: none;
     padding: 0;
     position: relative;
-    
-   
   }
   
   .timeline-event {
@@ -21,8 +74,41 @@
     margin-bottom: 20px;
     padding-left: 40px; /* Space for the dot and line */
     opacity: 0; /* Initially hide elements */
-    transform: translateY(50px); /* Start lower and move up */
-    animation: fadeInMoveUp 1s ease forwards; /* Animation for each event */
+    transform: translateY(50px) scale(0.9); /* Start lower, smaller, and move up */
+    animation: fadeInMoveUp 1.5s ease forwards; /* Animation for each event */
+  }
+
+  /* Only animate when section is visible */
+  .experience-container.visible .timeline-event {
+    animation: fadeInMoveUp 1.5s ease forwards;
+  }
+
+  .experience-container.visible .timeline-event:nth-child(1) {
+    animation-delay: 0.5s;
+  }
+
+  .experience-container.visible .timeline-event:nth-child(2) {
+    animation-delay: 1.0s;
+  }
+
+  .experience-container.visible .timeline-event:nth-child(3) {
+    animation-delay: 1.5s;
+  }
+
+  .experience-container.visible .timeline-event:nth-child(4) {
+    animation-delay: 2.0s;
+  }
+
+  /* Visual indicator when hover is enabled */
+  .experience-container.hover-enabled .timeline-content {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  /* Hover effects only when enabled */
+  .experience-container.hover-enabled .timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
   }
   
   .timeline-dot {
@@ -34,30 +120,159 @@
     background: linear-gradient(45deg, #2193b0 0%, #6dd5ed 100%);
     border-radius: 50%;
     z-index: 100;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.5s ease;
+  }
+
+  /* Show dots when section is visible with staggered animation */
+  .experience-container.visible .timeline-dot {
+    opacity: 1;
+    transform: scale(1);
+    animation: dotAppear 1.0s ease forwards;
+  }
+
+  /* Staggered animation for dots - synchronized with timeline events */
+  .experience-container.visible .timeline-event:nth-child(1) .timeline-dot {
+    animation-delay: 0.5s;
+  }
+  
+  .experience-container.visible .timeline-event:nth-child(2) .timeline-dot {
+    animation-delay: 1.0s;
+  }
+  
+  .experience-container.visible .timeline-event:nth-child(3) .timeline-dot {
+    animation-delay: 1.5s;
+  }
+  
+  .experience-container.visible .timeline-event:nth-child(4) .timeline-dot {
+    animation-delay: 2.0s;
   }
   
   .timeline-content {
     position: relative;
     max-width: 800px;
     margin: 20px auto;
-    padding: 20px;
-   /* background: #fff;*/
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 8px;
-    background: white !important;
+    border-radius: 15px;
+    color: white;
+  }
+
+  .timeline-content h4 {
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .timeline-content .role {
+    color: #f0f0f0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+
+  .timeline-content .description {
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin-bottom: 0;
+    font-size: 1rem;
   }
 
   .timeline-content:hover{
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-
   }
-  .timeline-image {
-    width: 50px;
-    height: 50px;
-    float: left;
-    margin-right: 10px;
+
+  .timeline-content:hover .company-icon {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .timeline-content:hover .company-header h4 {
+    color: #e0e0e0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Shimmer effect for connected flow */
+  .timeline-content {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.8s ease;
+    z-index: 1;
+  }
+
+  .experience-container.visible .timeline-event:nth-child(1) .timeline-content::before {
+    animation: shimmerFlow 1.2s ease forwards;
+    animation-delay: 0.5s;
+  }
+
+  .experience-container.visible .timeline-event:nth-child(2) .timeline-content::before {
+    animation: shimmerFlow 1.2s ease forwards;
+    animation-delay: 1.0s;
+  }
+
+  .experience-container.visible .timeline-event:nth-child(3) .timeline-content::before {
+    animation: shimmerFlow 1.2s ease forwards;
+    animation-delay: 1.5s;
+  }
+
+  .experience-container.visible .timeline-event:nth-child(4) .timeline-content::before {
+    animation: shimmerFlow 1.2s ease forwards;
+    animation-delay: 2.0s;
+  }
+
+  @keyframes shimmerFlow {
+    from { left: -100%; }
+    to { left: 100%; }
+  }
+  .company-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  .company-icon {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .company-header h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1.2;
   }
   
   .timeline::before {
@@ -69,39 +284,199 @@
     width: 2px;
     background: linear-gradient(45deg, #2193b0 0%, #6dd5ed 100%);
     height: 0; /* Start with no height */
-    animation: drawLine 4s ease-in-out forwards; /* Slower line drawing */
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+
+  /* Show connecting line when section is visible */
+  .experience-container.visible .timeline::before {
+    opacity: 1;
+    animation: drawLine 2.0s ease-in-out forwards;
+    animation-delay: 1.0s; /* Start after first dot appears */
   }
   
   @keyframes drawLine {
     from { height: 0; }
     to { height: 80%; }
   }
+
+  @keyframes dotAppear {
+    from { 
+      opacity: 0; 
+      transform: scale(0); 
+    }
+    to { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+  }
   
   @keyframes fadeInMoveUp {
     from {
       opacity: 0;
-      transform: translateY(50px);
+      transform: translateY(50px) scale(0.9);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
   }
   
-  /* Adding staggered animation effects for each item */
-  .timeline-event:nth-child(1) {
-    animation-delay: 1s; /* Delays are cumulative */
+  /* Staggered animation delays are now handled above */
+
+  /* Mobile Responsive Design */
+  @media (max-width: 768px) {
+    .experience-container {
+      padding: 60px 15px;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
+    .experience-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .experience-header h1 {
+      font-size: 2.5rem;
+    }
+
+    .experience-header p {
+      font-size: 1rem;
+    }
+
+    .timeline-container {
+      margin: -5.5%;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 20px;
+      padding: 0 15px;
+      margin: 0;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .timeline-event {
+      margin-bottom: 0;
+      padding-left: 0; /* Remove left padding on mobile */
+    }
+
+    .timeline-dot {
+      display: none; /* Hide dots on mobile */
+    }
+
+    .timeline::before {
+      display: none; /* Hide connecting line on mobile */
+    }
+
+    .timeline-content {
+      padding: 20px;
+      margin: 0;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .timeline-content h4 {
+      font-size: 1.2rem;
+    }
+
+    .timeline-content .role {
+      font-size: 1rem;
+    }
+
+    .timeline-content .description {
+      font-size: 0.9rem;
+    }
+
+    .company-icon {
+      font-size: 20px;
+      width: 32px;
+      height: 32px;
+    }
+
+    .company-header h4 {
+      font-size: 1rem;
+    }
+
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      left: -6px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .experience-container {
+      padding: 40px 10px;
+    }
+
+    .experience-header h1 {
+      font-size: 2rem;
+    }
+
+    .experience-header p {
+      font-size: 0.9rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 15px;
+      padding: 0 10px;
+    }
+
+    .timeline-event {
+      margin-bottom: 0;
+      padding-left: 0; /* Remove left padding on mobile */
+    }
+
+    .timeline-dot {
+      display: none; /* Hide dots on mobile */
+    }
+
+    .timeline::before {
+      display: none; /* Hide connecting line on mobile */
+    }
+
+    .timeline-content {
+      padding: 20px;
+      margin: 0;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .timeline-content h4 {
+      font-size: 1.1rem;
+    }
+
+    .timeline-content .role {
+      font-size: 0.95rem;
+    }
+
+    .timeline-content .description {
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    .company-icon {
+      font-size: 18px;
+      width: 28px;
+      height: 28px;
+    }
+
+    .company-header h4 {
+      font-size: 0.9rem;
+    }
+
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      left: -5px;
+    }
   }
   
-  .timeline-event:nth-child(2) {
-    animation-delay: 2s;
-  }
-  
-  .timeline-event:nth-child(3) {
-    animation-delay: 3s;
-  }
-  
-  .timeline-event:nth-child(4) {
-    animation-delay: 4s;
-  }
-  
+

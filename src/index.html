@@ -2,16 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Nawaz Muhammad</title>
+  <title>Nawaz Muhammad - Software Development Engineer | AWS & Google Cloud Certified</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="src/assets/profile_pic.png">
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"> -->
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Software Development Engineer with 5+ years of experience in full-stack development, cloud technologies, and system architecture. AWS & Google Cloud Certified professional specializing in Angular, JavaScript, Java, Python, and Kubernetes.">
+  <meta name="keywords" content="Software Engineer, Full Stack Developer, AWS Certified, Google Cloud Certified, Angular, JavaScript, Java, Python, Kubernetes, Cloud Architecture, System Design">
+  <meta name="author" content="Nawaz Muhammad">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Nawaz Muhammad - Software Development Engineer">
+  <meta property="og:description" content="AWS & Google Cloud Certified Software Development Engineer with 5+ years of experience in full-stack development and cloud technologies.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nawazmuhammad.dev">
+  <meta property="og:image" content="https://nawazmuhammad.dev/assets/profile_pic.jpeg">
+  <meta property="og:site_name" content="Nawaz Muhammad Portfolio">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nawaz Muhammad - Software Development Engineer">
+  <meta name="twitter:description" content="AWS & Google Cloud Certified Software Development Engineer with 5+ years of experience in full-stack development and cloud technologies.">
+  <meta name="twitter:image" content="https://nawazmuhammad.dev/assets/profile_pic.jpeg">
+  <meta name="twitter:creator" content="@nawazz_muhammad">
+  
+  <!-- Additional Meta Tags -->
+  <meta name="theme-color" content="#667eea">
+  <meta name="msapplication-TileColor" content="#667eea">
+  <meta name="application-name" content="Nawaz Muhammad Portfolio">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="src/assets/profile_pic.jpeg">
+  <link rel="apple-touch-icon" href="src/assets/profile_pic.jpeg">
+  
+  <!-- Fonts -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500&display=swap" as="style" onload="this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400&display=swap"></noscript>
-
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400&display=swap"></noscript>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID', {
+      page_title: 'Nawaz Muhammad Portfolio',
+      page_location: window.location.href,
+      custom_map: {
+        'custom_parameter_1': 'section_visited',
+        'custom_parameter_2': 'resume_downloaded'
+      }
+    });
+    
+    // Track section visits
+    function trackSectionVisit(sectionName) {
+      gtag('event', 'section_view', {
+        'section_name': sectionName,
+        'page_title': 'Nawaz Muhammad Portfolio - ' + sectionName
+      });
+    }
+    
+    // Track resume downloads
+    function trackResumeDownload() {
+      gtag('event', 'file_download', {
+        'file_name': 'Nawaz_Muhammad_Resume.pdf',
+        'file_type': 'pdf'
+      });
+    }
+    
+    // Make functions globally available
+    window.trackSectionVisit = trackSectionVisit;
+    window.trackResumeDownload = trackResumeDownload;
+  </script>
+  
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 
 </head>
 <body class="mat-typography">

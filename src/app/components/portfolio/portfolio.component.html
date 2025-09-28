@@ -1,0 +1,155 @@
+<div class="container">
+        <header>
+            <nav class="horizontal-nav">
+                <div class="logo" style="font-family: OCR A Std, monospace;"><span style="margin-right: 4px;">Nawaz</span><span
+                        style="color:#808080">Muhammad</span></div>
+                
+                <!-- Hamburger Menu Button -->
+                <button class="hamburger-menu" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- Desktop Navigation -->
+                <ul class="desktop-nav">
+                    <li><a (click)="onNavClick($event, 'about')" href="javascript:void(0)">Home</a></li>
+                    <li><a (click)="onNavClick($event, 'about-me')" href="javascript:void(0)">About</a></li>
+                    <li><a (click)="onNavClick($event, 'education')" href="javascript:void(0)">Education</a></li>
+                    <li><a (click)="onNavClick($event, 'experience')" href="javascript:void(0)">Experience</a></li>
+                    <li><a (click)="onNavClick($event, 'certifications')" href="javascript:void(0)">Certifications</a></li>
+                    <li><a (click)="onNavClick($event, 'awards')" href="javascript:void(0)">Awards</a></li>
+                    <li><a (click)="onNavClick($event, 'skills')" href="javascript:void(0)">Skills</a></li>
+                    <li><a (click)="onNavClick($event, 'projects')" href="javascript:void(0)">Projects</a></li>
+                    <li><a (click)="onNavClick($event, 'contact')" href="javascript:void(0)">Contact</a></li>
+                </ul>
+
+                <!-- Mobile Navigation Menu -->
+                <ul class="mobile-nav" [class.active]="isMobileMenuOpen">
+                    <li><a (click)="onNavClick($event, 'about')" href="javascript:void(0)">Home</a></li>
+                    <li><a (click)="onNavClick($event, 'about-me')" href="javascript:void(0)">About</a></li>
+                    <li><a (click)="onNavClick($event, 'education')" href="javascript:void(0)">Education</a></li>
+                    <li><a (click)="onNavClick($event, 'experience')" href="javascript:void(0)">Experience</a></li>
+                    <li><a (click)="onNavClick($event, 'certifications')" href="javascript:void(0)">Certifications</a></li>
+                    <li><a (click)="onNavClick($event, 'awards')" href="javascript:void(0)">Awards</a></li>
+                    <li><a (click)="onNavClick($event, 'skills')" href="javascript:void(0)">Skills</a></li>
+                    <li><a (click)="onNavClick($event, 'projects')" href="javascript:void(0)">Projects</a></li>
+                    <li><a (click)="onNavClick($event, 'contact')" href="javascript:void(0)">Contact</a></li>
+                    <li class="mobile-resume-btn">
+                        <a href="assets/resume.pdf" target="_blank">
+                            <i class="material-icons">download</i>
+                            Download Resume
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Desktop Resume Button -->
+                <a href="assets/resume.pdf" target="_blank" class="desktop-resume-btn">
+                    <i class="material-icons">download</i>
+                    Download Resume
+                </a>
+            </nav>
+        </header>
+
+    <main>
+      <div class="hero-image">
+        <!-- Insert your smartphone image here -->
+      </div>
+    </main>
+    
+
+    <div id="about">
+      <app-about></app-about>
+    </div>
+    <div id="about-me" class="about-me-section">
+      <div class="about-me-container">
+        <div class="about-me-header">
+          <h1 class="gradient-title">About Me</h1>
+          <div class="title-underline"></div>
+        </div>
+        <div class="about-me-content">
+          <div class="about-text-card">
+            <div class="text-highlight">
+              <span class="highlight-icon">💻</span>
+              <p>I am a <strong>Software Development Engineer</strong> with <strong>over 5 years</strong> of expertise in <strong>full-stack development</strong>, <strong>cloud technologies</strong>, and <strong>system architecture</strong>. Specializing in <strong>Kubernetes</strong>, <strong>Angular</strong>, <strong>JavaScript</strong>, <strong>Java</strong>, <strong>Python</strong>, and modern web frameworks. I'm <strong>AWS & Google Cloud Certified</strong> with a passion for building solutions that impact millions.</p>
+            </div>
+            
+            <div class="text-highlight">
+              <span class="highlight-icon">🚀</span>
+              <p>With <strong>5+ years</strong> of international experience developing scalable full-stack applications across the U.S. and India, I've worked on projects that drive real change — from designing <strong>COVID vaccination platforms</strong> serving two U.S. states to building <strong>omnichannel customer service platforms</strong> that helped companies triple their growth.</p>
+            </div>
+          </div>
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-number">5+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">$12M</div>
+              <div class="stat-label">Revenue Project</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Efficiency Gain</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">4.0</div>
+              <div class="stat-label">GPA at Clark</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="experience" #animateOnScroll class="expr">
+      <app-experience></app-experience>
+    </div>
+    <div id="certifications" class="certifications-section">
+      <app-certifications></app-certifications>
+    </div>
+    <div id="awards" class="awards-section">
+      <app-awards></app-awards>
+    </div>
+    <div id="skills">
+      <app-skills></app-skills>
+    </div>
+    <div id="projects">
+      <app-projects></app-projects>
+    </div>
+    <div id="education">
+      <app-education></app-education>
+    </div>
+    <div id="contact" class="contact-section">
+      <div class="contact-container">
+        <div class="contact-header">
+          <h2>Get In Touch</h2>
+          <p>Let's connect and discuss opportunities</p>
+        </div>
+        
+        
+        <div class="social-section">
+          <h3>Follow Me</h3>
+          <div class="social-links">
+            <a href="mailto:shaalkak0@gmail.com" class="social-link email-link" title="Send Email">
+              <img src="assets/email-opened-svgrepo-com.svg" alt="Email" class="social-icon">
+            </a>
+            <a href="https://www.linkedin.com/in/nawaz-muhamad/" target="_blank" class="social-link linkedin-link" title="Connect on LinkedIn">
+              <img src="assets/linkedin-svgrepo-com.svg" alt="LinkedIn" class="social-icon">
+            </a>
+            <a href="https://github.com/NawazLone" target="_blank" class="social-link github-link" title="View GitHub Profile">
+              <img src="assets/github-color-svgrepo-com.svg" alt="GitHub" class="social-icon">
+            </a>
+            <a href="https://www.instagram.com/nawazz.muhammad/" target="_blank" class="social-link instagram-link" title="Follow on Instagram">
+              <img src="assets/instagram-1-svgrepo-com.svg" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://www.facebook.com/nawaz.lone.7" target="_blank" class="social-link facebook-link" title="Connect on Facebook">
+              <img src="assets/facebook-2-logo-svgrepo-com.svg" alt="Facebook" class="social-icon">
+            </a>
+            <a href="https://maps.google.com/?q=Queens+Dr,+Schenectady,+New+York,+12304" target="_blank" class="social-link location-link" title="Queens Dr, Schenectady, New York, 12304">
+              <i class="material-icons">location_on</i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
