@@ -1,8 +1,7 @@
 <div class="container">
-        <header>
+        <header [class.scrolled]="isScrolled">
             <nav class="horizontal-nav">
-                <div class="logo" style="font-family: OCR A Std, monospace;"><span style="margin-right: 4px;">Nawaz</span><span
-                        style="color:#808080">Muhammad</span></div>
+                <div class="logo">Nawaz Muhammad</div>
                 
                 <!-- Hamburger Menu Button -->
                 <button class="hamburger-menu" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">
@@ -51,11 +50,7 @@
             </nav>
         </header>
 
-    <main>
-      <div class="hero-image">
-        <!-- Insert your smartphone image here -->
-      </div>
-    </main>
+    <main></main>
     
 
     <div id="about">
@@ -152,4 +147,7 @@
         </div>
       </div>
     </div>
+    
+    <!-- SMS Chatbot -->
+    <app-chatbot></app-chatbot>
   </div>
