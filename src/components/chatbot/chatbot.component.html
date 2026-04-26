@@ -1,0 +1,108 @@
+<!-- Chatbot Toggle Button -->
+<div class="chatbot-toggle" (click)="toggleChat()" [class.open]="isOpen">
+  <div class="wave-hand">👋</div>
+  <span class="chatbot-label">{{ isOpen ? 'Close Chat' : 'Let\'s Chat' }}</span>
+</div>
+
+<!-- Chatbot Window -->
+<div class="chatbot-window" [class.open]="isOpen" [class.minimized]="isMinimized">
+  <!-- Chatbot Header -->
+  <div class="chatbot-header">
+    <div class="chatbot-title">
+      <div class="wave-hand-small">👋</div>
+      <span>Let's Chat!</span>
+    </div>
+    <div class="chatbot-controls">
+      <button class="minimize-btn" (click)="minimizeChat()" *ngIf="!isMinimized">
+        <i class="material-icons">minimize</i>
+      </button>
+      <button class="maximize-btn" (click)="maximizeChat()" *ngIf="isMinimized">
+        <i class="material-icons">open_in_full</i>
+      </button>
+      <button class="close-btn" (click)="toggleChat()">
+        <i class="material-icons">close</i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Chatbot Body -->
+  <div class="chatbot-body" *ngIf="!isMinimized">
+    <!-- Messages Container -->
+    <div class="messages-container">
+      <div class="message" 
+           *ngFor="let message of messages" 
+           [class.visitor]="message.sender === 'visitor'"
+           [class.you]="message.sender === 'you'">
+        <div class="message-content">
+          <div class="message-text">{{ message.text }}</div>
+          <div class="message-meta">
+            <span class="message-time">{{ formatTime(message.timestamp) }}</span>
+            <span class="message-status" *ngIf="message.sender === 'visitor'">
+              <i class="material-icons" 
+                 [class.sending]="message.status === 'sending'"
+                 [class.sent]="message.status === 'sent'"
+                 [class.failed]="message.status === 'failed'">
+                {{ message.status === 'sending' ? 'schedule' : 
+                   message.status === 'sent' ? 'done' : 'error' }}
+              </i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visitor Info Form (only show if no conversation started) -->
+    <div class="visitor-info" *ngIf="!conversationId">
+      <div class="info-title">Quick Info (Optional)</div>
+      <div class="info-fields">
+        <input type="text" 
+               [(ngModel)]="visitorName" 
+               placeholder="Your name" 
+               class="info-input">
+        <input type="email" 
+               [(ngModel)]="visitorEmail" 
+               placeholder="Your email" 
+               class="info-input">
+      </div>
+    </div>
+
+    <!-- Conversation Status -->
+    <div class="conversation-status" *ngIf="conversationId">
+      <div class="status-indicator">
+        <div class="status-dot"></div>
+        <span>Live conversation with Nawaz</span>
+      </div>
+      <div class="status-note">
+        💬 Messages are sent via SMS. I'll notify you when Nawaz replies!
+      </div>
+    </div>
+
+    <!-- Message Input -->
+    <div class="message-input-container">
+      <div class="message-input-wrapper">
+        <textarea 
+          [(ngModel)]="newMessage"
+          (keypress)="onKeyPress($event)"
+          (input)="onMessageInput($event)"
+          placeholder="Type your message here... (Press Enter to send)"
+          class="message-input"
+          [disabled]="isLoading"
+          rows="2">
+        </textarea>
+        <!-- [disabled]="isSendButtonDisabled" -->
+        <button 
+          class="send-button" 
+          (click)="sendMessage()" 
+         
+          [title]="isSendButtonDisabled ? 'Type a message to send' : 'Send message'">
+          <i class="material-icons" *ngIf="!isLoading">send</i>
+          <i class="material-icons loading" *ngIf="isLoading">hourglass_empty</i>
+        </button>
+      </div>
+      <div class="input-hint">
+        <span *ngIf="isSendButtonDisabled">💡 Type a message above to enable send button</span>
+        <span *ngIf="!isSendButtonDisabled">✅ Ready to send! Your message will go directly to Nawaz's phone via SMS</span>
+      </div>
+    </div>
+  </div>
+</div>
